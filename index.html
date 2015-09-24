@@ -11,14 +11,6 @@
 <body>
 	<div id=map></div>
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-	<script>
-	var myDataRef = new Firebase('https://sweltering-torch-5016.firebaseio.com/');
-	myDataRef.push({user:{name:"bla",data:{lat: 512, lng: 1337}}});
-	/*myDataRef.on('child_added', function(snapshot) { forEach
-        var message = snapshot.val();
-        displayChatMessage(message.name, message.text);
-      });*/
-	</script>
 	<script src="js/js.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jCB_t0bYumJk8C2zGTZbAidWa2T30-0&callback=init"
         async defer></script>
