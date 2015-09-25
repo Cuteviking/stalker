@@ -1,0 +1,23 @@
+CACHE MANIFEST
+
+CACHE:
+NETWORK:
+index.html
+contacts.html
+js/js.js
+css/style.css
+css/css.css
+images/map1.png
+images/contact1.png
+images/logo1.png
+images/logotyp-stalker60.png
+images/logotyp-stalker76.png
+images/logotyp-stalker120.png
+images/logotyp-stalker152.png
+images/logotyp-stalker180.png
+images/logotyp-stalker128.png
+images/logotyp-stalker192.png
+sound/ljud.mp3
+
+FALLBACK:
+#

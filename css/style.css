@@ -1,0 +1,149 @@
+body {
+	background: #ffffff;
+	font-family: 'Fjalla One';
+}
+
+
+h2 {
+	font-family: 'Fjalla One';
+
+}
+
+p {
+	font-family: 'Fjalla One';
+	margin: 0;
+}
+
+#form, #temp{
+	margin-top: 130px;
+}
+
+button, input {
+	border: solid 1px;
+	border-radius: 5px;
+	background: #ffffff;
+	padding: 10px;
+	border-color: #000000;
+	margin-bottom: 15px;
+	margin-top: 0;
+
+}
+
+.knapp{
+	background: #3EBFB9;
+	color: #ffffff;
+	font-family: 'Fjalla One';
+	border: none;
+	-webkit-box-shadow: 0px 0px 10px #777F7A;
+	margin-left: 10px;
+	cursor: pointer;
+
+}
+
+.knappreg{
+	background: #096D7F;
+	color: #ffffff;
+	font-family: 'Fjalla One';
+	border: none;
+	padding: 11px;
+	-webkit-box-shadow: 0px 0px 10px #777F7A;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+
+#name{
+	font-size: 28px;
+	margin-bottom: 10px;
+    color:red;
+	-webkit-animation; nameAnim 7s;
+	animation: nameAnim 7s infinite forwards; 
+}
+
+@keyframes nameAnim {
+	 0%   {color: #096D7F;}
+    25%  {color: #3EBFB9;}
+    50%  {color: #096D7F;}
+    100% {color: #3EBFB9;}
+}
+
+#loggain{
+	font-size: 28px;
+	margin-bottom: 10px;
+    color:red;
+	-webkit-animation; nameAnim 7s;
+	animation: logAnim 7s infinite forwards; 
+}
+
+@keyframes logAnim {
+	 0%   {color: #096D7F;}
+    25%  {color: #3EBFB9;}
+    50%  {color: #096D7F;}
+    100% {color: #3EBFB9;}
+}
+
+#skapa{
+	font-size: 28px;
+	margin-bottom: 10px;
+    color:red;
+	-webkit-animation; nameAnim 7s;
+	animation: skapaAnim 7s infinite forwards; 
+}
+
+@keyframes skapaAnim {
+	 0%   {color: #096D7F;}
+    25%  {color: #3EBFB9;}
+    50%  {color: #096D7F;}
+    100% {color: #3EBFB9;}
+}
+
+@media all and (orientation:landscape) {
+	.login{
+		
+		float:left;
+		margin-right: 40px;
+	}
+
+	.registrera {
+		 float:left;
+	}
+}
+
+#menu {
+	z-index:100;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+}
+
+#logo {
+	-webkit-filter: drop-shadow(5px 5px 5px #888888);
+	filter: drop-shadow(5px 5px 5px #888888);
+	top: 10px;
+	left: 10px;
+	width: 100px;
+	position: absolute;
+}
+
+#button {
+	-webkit-filter: drop-shadow(5px 5px 5px #888888);
+	filter: drop-shadow(5px 5px 5px #888888);
+	top: 10px;
+	right: 10px;
+	width: 100px;
+	position: absolute;
+}
+
+button {
+	background: transparent;
+	border: none;
+	margin: 0;
+	
+}
+
+
+
+
+
+

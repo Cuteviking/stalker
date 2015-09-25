@@ -1,0 +1,34 @@
+#body {
+	margin: 0;
+	padding: 0;
+}
+
+#menu {
+	background-image: url("images/background2.png");
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	padding: 10%;
+}
+
+#logo {
+	top: 10px;
+	left: 10px;
+	width: 20%;
+	position: absolute;
+}
+
+#button {
+	top: 10px;
+	right: 10px;
+	width: 20%;
+	position: absolute;
+}
+
+button {
+	background: transparent;
+	border: none;
+	margin: 0;
+	
+}

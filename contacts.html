@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type"
+  content="text/html" charset="UTF-8">
+<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+
+  <title>Stalker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Stalker">
+    <meta name="application-name" content="Stalker">
+  
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+<!--IOS-->
+<link rel="apple-touch-icon" href="images/logotyp-stalker-transp60.png"> <!-- (60x60) -->
+<link rel="apple-touch-icon" sizes="76x76" href="images/logotyp-stalker76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/logotyp-stalker120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/logotyp-stalker52.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/logotyp-stalker180.png">
+
+<!--ANDROID-->
+<link rel="icon" sizes="128x128" href="images/logotyp-stalker128.png">
+<link rel="icon" sizes="192x192" href="images/logotyp-stalker192.png">
+
+
+    
+</head>
+
+<body>
+	<header id="menu">
+		<img src="images/logo1.png" id="logo">
+		<button href="#" onclick="window.location.href='index.html'"><img  src="images/map1.png" id="button"></button>
+	</header>
+
+	<div id="form">
+		<div id="name">Lägg till användare</div>
+		<form id="myForm">
+			<p>Användarnamn</p>
+			<input id="username" type="text" name="username" pattern="^[a-zA-ZÅÄÖåäö]+$" placeholder="Pippi123" required value="">
+
+			<input class="knapp" type="submit" onclick="playPause()" value="Spara">
+		</form>
+	</div>
+
+  <audio id="music" > 
+          <source src="sound/ljud.mp3">
+        </audio>
+
+
+<script type="text/javascript">
+      function playPause(){
+      var audio = document.getElementById("music");
+
+   audio.play();
+        
+      }
+    </script>
+
+<div id="contacts"></div>
+
+
+
+
+  <script src="js/js.js" charset="utf-8"></script>  
+
+</body>
+</html>

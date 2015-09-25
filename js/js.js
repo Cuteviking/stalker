@@ -9,14 +9,35 @@ save friends location
  
 */
 function init(){
-	
-	if (navigator.geolocation) { // GPS ON 
-        navigator.geolocation.getCurrentPosition(saveLogLat); // fetch coords
-    } else {
-        // todo: inform that geolocation is not on. 
-		console.log("Geolocation is not supported");
-    }
+	if(!localStorage.username || localStorage.username == ""){
+		console.log("test");
+		document.getElementById("map").style.display = "none";
+		document.getElementById("temp").innerHTML = '<div class="login"><div id="loggain">Logga in</div><form method="POST" name="log-form" id="log-form"><input id="user" type="text" pattern="^[a-zA-ZÅÄÖåäö]+$" required name="username" placeholder="Användarnamn"> </br><input type="password" name="loglosen" pattern="^[a-zA-ZÅÄÖåäö]+$"required  placeholder="Lösenord"></br><input class="knapp" id="login" type="submit" value="Logga in"></div>';
+		document.getElementById("temp").innerHTML += '<div class="registrera"><div id="skapa">Skapa användare</div><form method="GET" name="reg-form" id="reg-form"><input type="text" name="user" autofocus pattern="^[a-zA-ZÅÄÖåäö]+$"  required placeholder="Användarnamn"> </br><input type="password" name="losen" minlength="6" required  placeholder="Lösenord"></br><input type="text" pattern="^[a-zA-ZÅÄÖåäö0-9._%+-]+@[a-zA-ZÅÄÖåäö0-9.-]+\.[a-zA-ZÅÄÖåäö]{2,6}$" required name="epost" placeholder="Epost"> </br><input class="knappreg" id="send" type="submit" value="Registrera"></form></div>';
+		
+		document.getElementById("log-form").addEventListener("submit", function(e){
+			e.preventDefault();
+			login();
+		});
+	}else{
+		document.getElementById("temp").style.display = "none";
+		if (navigator.geolocation) { // GPS ON 
+			navigator.geolocation.getCurrentPosition(saveLogLat); // fetch coords
+		} else {
+
+			document.getElementById("temp").innerHTML = "Turn on Geolocation :c";
+			console.log("Geolocation is not supported");
+		}
+	}
 }
+
+function login(){
+	localStorage.username = document.getElementById("user").value;
+	var audio = document.getElementById("music");
+	audio.play();
+	location.reload();
+}
+
 
 function saveLogLat(myLatLng){
 	
@@ -28,14 +49,13 @@ function saveLogLat(myLatLng){
 			if(snapshot.val().user.name == localStorage.username){
 				console.log(snapshot.val().user.name);
 				var myDataRefUser = new Firebase('https://sweltering-torch-5016.firebaseio.com/' + snapshot.key() + '/user/data');
-				console.log('https://sweltering-torch-5016.firebaseio.com/' + snapshot.key() + '/user/data');
 				myDataRefUser.update({lat: myLatLng.coords.latitude, lng: myLatLng.coords.longitude});
 				
 				//save local
 				localStorage.latitude = myLatLng.coords.latitude;
 				localStorage.longitude = myLatLng.coords.longitude;
 				
-				initMap();
+				initMap(localStorage.latitude, localStorage.longitude);
 			}
 	}, function (errorObject) {
 		console.log("The read failed: " + errorObject.code);
@@ -43,12 +63,12 @@ function saveLogLat(myLatLng){
 }
 
 
-function initMap(){
+function initMap(latitude, longitude){
 	//myLatLng = {lat: myLatLng.coords.latitude, lng: myLatLng.coords.longitude};
 	
 	// Create a map object
 	var map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: Number(localStorage.latitude), lng: Number(localStorage.longitude)},
+		center: {lat: Number(latitude), lng: Number(longitude)},
 		scrollwheel: false,
 		zoom: 14
 	});

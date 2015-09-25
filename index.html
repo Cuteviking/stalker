@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<meta http-equiv="Content-Type"
 	content="text/html" charset="UTF-8">
-	<meta name="viewport" content="width=device-width initial-scale=1 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
 	
-	<link href="css/css.css" rel="stylesheet" type="text/css">
+	<title>Stalker</title>
+	<meta name="viewport" content="width=device-width initial-scale=1 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Stalker">
+    <meta name="application-name" content="Stalker">
+	
+	<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+	<link href="css/css.css" rel="stylesheet" type="text/css"> <!--Pierre-->
+	<link href="css/style.css" rel="stylesheet" type="text/css"><!--Klara-->
+	
+	<!--IOS-->
+	<link rel="apple-touch-icon" href="images/logotyp-stalker-transp60.png"> <!-- (60x60) -->
+	<link rel="apple-touch-icon" sizes="76x76" href="images/logotyp-stalker76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/logotyp-stalker120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/logotyp-stalker152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/logotyp-stalker180.png">
+
+	<!--ANDROID-->
+	<link rel="icon" sizes="128x128" href="images/logotyp-stalker128.png">
+	<link rel="icon" sizes="192x192" href="images/logotyp-stalker192.png">
 	
 </head>
+
 <body>
+	<header id="menu">
+		<img src="images/logo1.png" id="logo">
+		<button href="#" onclick="window.location.href='contacts.html'"><img  src="images/contact1.png" id="button"></button>
+	</header>
+	
+	<div id="temp"></div>
 	<div id=map></div>
+
+	<audio id="music"> 
+        <source src="sound/ljud.mp3">
+    </audio>
+	
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src="js/js.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3jCB_t0bYumJk8C2zGTZbAidWa2T30-0&callback=init"
         async defer></script>
+		
+		
 </body>
 </html>
