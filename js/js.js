@@ -22,17 +22,20 @@ function init(){
 	}else{
 		document.getElementById("temp").style.display = "none";
 		if (navigator.geolocation) { // GPS ON 
+			
 			navigator.geolocation.getCurrentPosition(saveLogLat); // fetch coords
 		} else {
 
 			document.getElementById("temp").innerHTML = "Turn on Geolocation :c";
-			console.log("Geolocation is not supported");
+			alert("Geolocation is not supported");
 		}
 	}
 }
 
 function login(){
 	localStorage.username = document.getElementById("user").value;
+	//todo: save cords
+	//todo: friend list
 	var audio = document.getElementById("music");
 	audio.play();
 	location.reload();
@@ -46,8 +49,9 @@ function saveLogLat(myLatLng){
 	//todo: check if internet .username needs to be defined
 	//save network . 
 	myDataRef.on("child_added", function(snapshot) {
+			alert(localStorage.username);
 			if(snapshot.val().user.name == localStorage.username){
-				console.log(snapshot.val().user.name);
+				alert(snapshot.val().user.name);
 				var myDataRefUser = new Firebase('https://sweltering-torch-5016.firebaseio.com/' + snapshot.key() + '/user/data');
 				myDataRefUser.update({lat: myLatLng.coords.latitude, lng: myLatLng.coords.longitude});
 				
