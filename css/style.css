@@ -51,6 +51,14 @@ button, input {
 	cursor: pointer;
 }
 
+#friendList {
+	padding:0px;
+	list-style-type: none;
+}
+
+#friendList li{
+	padding: 3px 2px;
+}
 
 #name{
 	font-size: 28px;
@@ -104,7 +112,7 @@ button, input {
 		margin-right: 40px;
 	}
 
-	.registrera {
+	.registrera, .friend{
 		 float:left;
 	}
 }

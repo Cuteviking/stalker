@@ -35,37 +35,26 @@
 		<img src="images/logo1.png" id="logo">
 		<button href="#" onclick="window.location.href='index.html'"><img  src="images/map1.png" id="button"></button>
 	</header>
+	<div id="temp">
+		<div id="form">
+			<div id="name">Lägg till användare</div>
+			<form id="myForm">
+				<p>Användarnamn</p>
+				<input id="username" type="text" name="username" pattern="^[a-zA-ZÅÄÖåäö]+$" placeholder="Pippi123" required value="">
 
-	<div id="form">
-		<div id="name">Lägg till användare</div>
-		<form id="myForm">
-			<p>Användarnamn</p>
-			<input id="username" type="text" name="username" pattern="^[a-zA-ZÅÄÖåäö]+$" placeholder="Pippi123" required value="">
-
-			<input class="knapp" type="submit" onclick="playPause()" value="Spara">
-		</form>
+				<input class="knapp" type="submit" value="Spara">
+			</form>
+		</div>
+		<div class="friend">
+			<div id="name">Vänner</div>
+			<ul id="friendList"></ul>
+		</div>
 	</div>
-
-  <audio id="music" > 
-          <source src="sound/ljud.mp3">
-        </audio>
+		
 
 
-<script type="text/javascript">
-      function playPause(){
-      var audio = document.getElementById("music");
-
-   audio.play();
-        
-      }
-    </script>
-
-<div id="contacts"></div>
-
-
-
-
-  <script src="js/js.js" charset="utf-8"></script>  
+	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+	<script src="js/friend.js" charset="utf-8"></script>  
 
 </body>
 </html>

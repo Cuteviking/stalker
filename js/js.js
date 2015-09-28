@@ -10,7 +10,6 @@ save friends location
 */
 function init(){
 	if(!localStorage.username || localStorage.username == ""){
-		console.log("test");
 		document.getElementById("map").style.display = "none";
 		document.getElementById("temp").innerHTML = '<div class="login"><div id="loggain">Logga in</div><form method="POST" name="log-form" id="log-form"><input id="user" type="text" pattern="^[a-zA-ZÅÄÖåäö]+$" required name="username" placeholder="Användarnamn"> </br><input type="password" name="loglosen" pattern="^[a-zA-ZÅÄÖåäö]+$"required  placeholder="Lösenord"></br><input class="knapp" id="login" type="submit" value="Logga in"></div>';
 		document.getElementById("temp").innerHTML += '<div class="registrera"><div id="skapa">Skapa användare</div><form method="GET" name="reg-form" id="reg-form"><input type="text" name="user" autofocus pattern="^[a-zA-ZÅÄÖåäö]+$"  required placeholder="Användarnamn"> </br><input type="password" name="losen" minlength="6" required  placeholder="Lösenord"></br><input type="text" pattern="^[a-zA-ZÅÄÖåäö0-9._%+-]+@[a-zA-ZÅÄÖåäö0-9.-]+\.[a-zA-ZÅÄÖåäö]{2,6}$" required name="epost" placeholder="Epost"> </br><input class="knappreg" id="send" type="submit" value="Registrera"></form></div>';
@@ -38,20 +37,22 @@ function login(){
 	//todo: friend list
 	var audio = document.getElementById("music");
 	audio.play();
-	location.reload();
+	
+	var myDataRef = new Firebase('https://sweltering-torch-5016.firebaseio.com/'); //firebase
+	myDataRef.push({user:{name:localStorage.username, data:{}}});
+	init(); //do I have username now? 
 }
 
 
 function saveLogLat(myLatLng){
-	
+	document.getElementById("map").style.display = "block";
 	var myDataRef = new Firebase('https://sweltering-torch-5016.firebaseio.com/'); //firebase
 	
 	//todo: check if internet .username needs to be defined
 	//save network . 
 	myDataRef.on("child_added", function(snapshot) {
-			alert(localStorage.username);
 			if(snapshot.val().user.name == localStorage.username){
-				alert(snapshot.val().user.name);
+				console.log(snapshot.val().user.name);
 				var myDataRefUser = new Firebase('https://sweltering-torch-5016.firebaseio.com/' + snapshot.key() + '/user/data');
 				myDataRefUser.update({lat: myLatLng.coords.latitude, lng: myLatLng.coords.longitude});
 				
