@@ -87,12 +87,23 @@ function setUser(map){
 
 function setFriends(map){
 	var myDataRef = new Firebase('https://sweltering-torch-5016.firebaseio.com/');
+	if(localStorage.friends !== undefined){
 	
-	myDataRef.on("child_added", function(snapshot) {
-		setMarker(map,snapshot.val().user.data.lat,snapshot.val().user.data.lng,snapshot.val().user.name);
-	}, function (errorObject) {
-		console.log("The read failed: " + errorObject.code);
-	})
+	var tempArr = JSON.parse(localStorage.friends);
+	
+		myDataRef.on("child_added", function(snapshot) {	
+			for(var i=0;i<tempArr.length;i++){
+				if(snapshot.val().user.name == tempArr[i]){
+					setMarker(map,snapshot.val().user.data.lat,snapshot.val().user.data.lng,snapshot.val().user.name);
+				}
+			}
+		}, function (errorObject) {
+			console.log("The read failed: " + errorObject.code);
+		})
+	}
+	
+	
+	
 	
 }
 

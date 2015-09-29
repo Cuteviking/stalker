@@ -42,7 +42,7 @@
 				<p>Användarnamn</p>
 				<input id="username" type="text" name="username" pattern="^[a-zA-ZÅÄÖåäö]+$" placeholder="Pippi123" required value="">
 
-				<input class="knapp" type="submit" value="Spara">
+				<input id="add" class="knapp" type="submit" value="Spara">
 			</form>
 		</div>
 		<div class="friend">
@@ -51,7 +51,9 @@
 		</div>
 	</div>
 		
-
+	<audio id="music"> 
+        <source src="sound/ljud.mp3">
+    </audio>
 
 	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 	<script src="js/friend.js" charset="utf-8"></script>  
