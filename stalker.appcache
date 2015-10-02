@@ -1,10 +1,6 @@
 CACHE MANIFEST
 
 CACHE:
-NETWORK:
-index.html
-contacts.html
-js/js.js
 css/style.css
 css/css.css
 images/map1.png
@@ -18,6 +14,12 @@ images/logotyp-stalker180.png
 images/logotyp-stalker128.png
 images/logotyp-stalker192.png
 sound/ljud.mp3
+js/js.js
+js/friend.js
+contacts.html
+index.html
+
+NETWORK:
 
 FALLBACK:
-#
+#google api 

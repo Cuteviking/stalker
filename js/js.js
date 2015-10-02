@@ -9,32 +9,33 @@ save friends location
  
 */
 function init(){
-	if(!localStorage.username || localStorage.username == ""){
+	if(navigator.onLine){ // work around for appcache
+		
+		if(!localStorage.username || localStorage.username == ""){
 		document.getElementById("map").style.display = "none";
 		document.getElementById("temp").innerHTML = '<div class="login"><div id="loggain">Logga in</div><form method="POST" name="log-form" id="log-form"><input id="user" type="text" pattern="^[a-zA-ZÅÄÖåäö]+$" required name="username" placeholder="Användarnamn"> </br><input type="password" name="loglosen" pattern="^[a-zA-ZÅÄÖåäö]+$"required  placeholder="Lösenord"></br><input class="knapp" id="login" type="submit" value="Logga in"></div>';
 		document.getElementById("temp").innerHTML += '<div class="registrera"><div id="skapa">Skapa användare</div><form method="GET" name="reg-form" id="reg-form"><input type="text" name="user" autofocus pattern="^[a-zA-ZÅÄÖåäö]+$"  required placeholder="Användarnamn"> </br><input type="password" name="losen" minlength="6" required  placeholder="Lösenord"></br><input type="text" pattern="^[a-zA-ZÅÄÖåäö0-9._%+-]+@[a-zA-ZÅÄÖåäö0-9.-]+\.[a-zA-ZÅÄÖåäö]{2,6}$" required name="epost" placeholder="Epost"> </br><input class="knappreg" id="send" type="submit" value="Registrera"></form></div>';
-		
 		document.getElementById("log-form").addEventListener("submit", function(e){
 			e.preventDefault();
 			login();
 		});
-	}else{
-		document.getElementById("temp").style.display = "none";
-		if (navigator.geolocation) { // GPS ON 
-			
-			navigator.geolocation.getCurrentPosition(saveLogLat); // fetch coords
-		} else {
-
-			document.getElementById("temp").innerHTML = "Turn on Geolocation :c";
-			alert("Geolocation is not supported");
+		}else{
+			document.getElementById("temp").style.display = "none";
+			if (navigator.geolocation) { // GPS ON 
+				navigator.geolocation.getCurrentPosition(saveLogLat); // fetch coords
+			} else {
+				document.getElementById("temp").innerHTML = "Turn on Geolocation :c";
+				alert("Geolocation is not supported");
+			}
 		}
+	}else{
+		document.getElementById("temp").innerHTML = "Sorry, you are offline";
 	}
 }
 
 function login(){
 	localStorage.username = document.getElementById("user").value;
-	//todo: save cords
-	//todo: friend list
+
 	var audio = document.getElementById("music");
 	audio.play();
 	
@@ -64,7 +65,7 @@ function saveLogLat(myLatLng){
 			}
 	}, function (errorObject) {
 		console.log("The read failed: " + errorObject.code);
-	})	
+	});	
 }
 
 
@@ -99,7 +100,7 @@ function setFriends(map){
 			}
 		}, function (errorObject) {
 			console.log("The read failed: " + errorObject.code);
-		})
+		});
 	}
 	
 	
